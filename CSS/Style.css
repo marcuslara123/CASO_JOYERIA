@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+}
+
+.d-block {
+    width: 20%;
+    margin: auto;
+}
+
+section {
+    background-color: black;
+}
+
+p {
+    color: aliceblue;
+}
+
+.borde {
+    border: 1px;
+    color: #000;
+}
+/*
+*REGISTRO
+*/
+#body1 {
+    font-family: Arial, sans-serif;
+    background-color: #cbf3f3;
+}
+
+#body1 form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#body1 label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#body1 input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#body1 input[type="submit"] {
+    background-color: #008CBA;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#body1 input[type="submit"]:hover {
+    background-color: #006B8E;
+}
+
+
+/*
+*COLLARES
+*/
+#bodycollar .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#bodycollar .joyas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#bodycollar .joya {
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+#bodycollar .joya img {
+    width: 100%;
+}
+
+#bodycollar .joya h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#bodycollar .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+/*
+*ANILLOS
+*/
+#bodyanillos .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#bodyanillos .joyas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#bodyanillos .joya {
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+#bodyanillos .joya img {
+    width: 100%;
+}
+
+#bodyanillos .joya h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#bodyanillos .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+/*
+*BRAZALETES
+*/
+#bodybraza .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#bodybraza .joyas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#bodybraza .joya {
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+#bodybraza .joya img {
+    width: 100%;
+}
+
+#bodybraza .joya h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#bodybraza .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+   /*
+   *PENDIENTES
+   */
+#bodypendientes .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#bodypendientes .joyas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#bodypendientes .joya {
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+#bodypendientes .joya img {
+    width: 100%;
+}
+
+#bodypendientes .joya h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#bodypendientes .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+/*
+*FOOTER
+*/
+.page-footer{
+    margin-top: 70px;
+    display: inline-block;
+    width: 100%;
+}
+.benefit{
+    color: #000;
+    font: 14px Montserrat;
+    background: rgb(92, 33, 168);
+    padding: 15px 0px;
+}
+.wrapper-container{
+    font: 14px Montserrat;
+    padding: 0px 32px;
+}
+.Beneficios{
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px 0px 0px 25px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    img{
+        width: 50%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    img{
+        width: 60%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    img{
+        width: 70%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    img{
+        width: 80%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    img{
+        width: 90%;
+    }
+}
