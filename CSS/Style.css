@@ -106,25 +106,7 @@ select {
     text-align: center;
 }
 
-#bodycollar .joyas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
-#bodycollar .joya {
-    width: 30%;
-    margin-bottom: 40px;
-}
-
-#bodycollar .joya img {
-    width: 100%;
-}
-
-#bodycollar .joya h2 {
-    font-size: 20px;
-    margin-top: 10px;
-}
 
 #bodycollar .precio {
     font-size: 16px;
@@ -139,26 +121,6 @@ select {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-}
-
-#bodyanillos .joyas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-#bodyanillos .joya {
-    width: 30%;
-    margin-bottom: 40px;
-}
-
-#bodyanillos .joya img {
-    width: 100%;
-}
-
-#bodyanillos .joya h2 {
-    font-size: 20px;
-    margin-top: 10px;
 }
 
 #bodyanillos .precio {
@@ -176,25 +138,7 @@ select {
     text-align: center;
 }
 
-#bodybraza .joyas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
-#bodybraza .joya {
-    width: 30%;
-    margin-bottom: 40px;
-}
-
-#bodybraza .joya img {
-    width: 100%;
-}
-
-#bodybraza .joya h2 {
-    font-size: 20px;
-    margin-top: 10px;
-}
 
 #bodybraza .precio {
     font-size: 16px;
@@ -211,25 +155,7 @@ select {
     text-align: center;
 }
 
-#bodypendientes .joyas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
-#bodypendientes .joya {
-    width: 30%;
-    margin-bottom: 40px;
-}
-
-#bodypendientes .joya img {
-    width: 100%;
-}
-
-#bodypendientes .joya h2 {
-    font-size: 20px;
-    margin-top: 10px;
-}
 
 #bodypendientes .precio {
     font-size: 16px;
@@ -239,33 +165,91 @@ select {
 /*
 *FOOTER
 */
-.page-footer{
-    margin-top: 70px;
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faa302;
+    padding: 20px;
+  }
+  
+  .footer-left {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+  
+  .footer-left p {
+    margin: 0 0 10px;
+  }
+  
+  .footer-left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-left li {
     display: inline-block;
-    width: 100%;
-}
-.benefit{
-    color: #000;
-    font: 14px Montserrat;
-    background: rgb(92, 33, 168);
-    padding: 15px 0px;
-}
-.wrapper-container{
-    font: 14px Montserrat;
-    padding: 0px 32px;
-}
-.Beneficios{
-    color: #FFF;
-    font-family: 'Montserrat', sans-serif;
-    padding: 0px 0px 0px 25px;
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    img{
-        width: 50%;
-    }
-}
+    margin-right: 10px;
+  }
+  
+  .footer-left li:last-child {
+    margin-right: 0;
+  }
+  
+  .footer-left a {
+    color: #555;
+  }
+  
+  .footer-left a:hover {
+    color: #333;
+  }
+  
+  .footer-right {
+    flex: 1 1 100%;
+    text-align: right;
+  }
+  
+  .social-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social-icons li:last-child {
+    margin-right: 0;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #faa302;
+    text-align: center;
+    line-height: 30px;
+  }
+  
+  .social-icons a img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .footer-bottom {
+    flex: 1 1 100%;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+  }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
