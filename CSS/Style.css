@@ -2,11 +2,11 @@
     margin: 0;
 }
 
-.logotipo{
-    background-color: #d6533c;
-    margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
+.card-text{
+
+color: #faa302;
+
+
 }
 
 .d-block {
