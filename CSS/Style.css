@@ -372,3 +372,39 @@ footer {
 				color: orange;
 			}
 		}
+
+        /*FORMULARIO3*/
+
+        #registro-form3 {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #f1f1f1;
+            padding: 10px;
+            background-color: #f9f9f9;
+          }
+          
+          
+    
+          #registro-form3 span{
+            animation: colorChange2 3s infinite;
+            font-size: 12px;
+            margin-top: 5px;
+          }
+          @keyframes colorChange2 {
+		
+
+            0% {
+                color: orange;
+            }
+
+			50% {
+				color: #000;
+			}
+			
+			100% {
+				color: orange;
+			}
+		}
+
+          
+          
