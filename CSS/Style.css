@@ -106,13 +106,32 @@ select {
     text-align: center;
 }
 
+#bodycollar .joyas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
+#bodycollar .joya {
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+#bodycollar .joya img {
+    width: 100%;
+}
+
+#bodycollar .joya h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
 
 #bodycollar .precio {
     font-size: 16px;
     font-weight: bold;
     color: #008CBA;
 }
+
 /*
 *ANILLOS
 */
@@ -170,7 +189,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #faa302;
+    background-color: #01f3aa;
     padding: 20px;
   }
   
@@ -199,7 +218,7 @@ footer {
   }
   
   .footer-left a {
-    color: #555;
+    color: #fffafa;
   }
   
   .footer-left a:hover {
@@ -211,32 +230,32 @@ footer {
     text-align: right;
   }
   
-  .social-icons {
+  .iconosredes {
     list-style: none;
     margin: 0;
     padding: 0;
   }
   
-  .social-icons li {
+  .iconosredes li {
     display: inline-block;
     margin-right: 10px;
   }
   
-  .social-icons li:last-child {
+  .iconosredes li:last-child {
     margin-right: 0;
   }
   
-  .social-icons a {
+  .iconosredes a {
     display: inline-block;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #faa302;
+    background-color: #01f3aa;
     text-align: center;
     line-height: 30px;
   }
   
-  .social-icons a img {
+  .iconosredes a img {
     display: block;
     max-width: 100%;
     height: auto;
@@ -250,6 +269,13 @@ footer {
     color: #999;
     margin-top: 20px;
   }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    img{
+        width: 50%;
+    }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -315,7 +341,6 @@ footer {
         width: 90%;
     }
 }
-
 /*BODY CARRITO*/
 
 #bodycarro{
