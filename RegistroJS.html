@@ -61,25 +61,31 @@
 
 
 
-	<form id="form2" name="registro" onsubmit="return validarFormulario()" method="post">
+	<form id="form2" name="registro">
 
 		<h2>Registro de usuario</h2><br>
 
 		<label for="nombre">Nombre de usuario:</label><br>
 		<input type="text" id="nombre" name="nombre"><br><br>
+		<p id="valida_nombre"></p><br>
 		
 
 		<label for="fecha_nacimiento">Fecha de nacimiento:</label>
 		<input type="date" id="fecha_nacimiento" name="fecha_nacimiento"><br><br>
+		<p id="valida_nac"></p><br>
 		
 		<label for="correo">Correo electrónico:</label>
 		<input type="email" id="correo" name="correo"><br><br>
+		<p id="valida_email"></p><br>
 		
 		<label for="contrasena">Contraseña:</label>
 		<input type="password" id="contrasena" name="contrasena"><br><br>
+		<p id="valida_password"></p>
 		
 		
-		<input type="submit" value="Registrarse">
+		
+		<button type="button" onclick="validar()">Ingresar</button>
+
 	</form> 
 <!--FOOTER-->
 <br>

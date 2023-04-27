@@ -9,7 +9,7 @@ $(document).ready(function() {
       
    
       if (nombre == '') {
-        $('#nombre-error').text('Por favor INGRESAR NOMBRE VALIDO');
+        $('').text('Por favor INGRESAR NOMBRE VALIDO');
         formValido = false;
       } else {
         $('#nombre-error').text('');

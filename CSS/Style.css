@@ -50,6 +50,9 @@ p {
     max-width: 500px;
     margin: 0 auto;
 }
+#form2 p{
+    color: #000
+}
 
 
  #form1 {
@@ -385,7 +388,7 @@ footer {
           
           
     
-          #registro-form3 span{
+           #form2 p{
             animation: colorChange2 3s infinite;
             font-size: 12px;
             margin-top: 5px;
