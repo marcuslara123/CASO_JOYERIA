@@ -192,7 +192,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #01f3aa;
+    background-color: #fda725;
     padding: 20px;
   }
   
@@ -253,7 +253,7 @@ footer {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #01f3aa;
+    background-color: #fda725;
     text-align: center;
     line-height: 30px;
   }
@@ -377,6 +377,7 @@ footer {
 		}
 
         /*FORMULARIO3*/
+       
 
         #registro-form3 {
             margin: auto;
@@ -385,10 +386,8 @@ footer {
             padding: 10px;
             background-color: #f9f9f9;
           }
-          
-          
-    
-           #form2 p{
+
+          #registro-form3 p{
             animation: colorChange2 3s infinite;
             font-size: 12px;
             margin-top: 5px;
@@ -408,6 +407,13 @@ footer {
 				color: orange;
 			}
 		}
-
           
           
+    
+           #form2 p{
+            animation: colorChange2 3s infinite;
+            font-size: 12px;
+            margin-top: 5px;
+         
+          
+           }
