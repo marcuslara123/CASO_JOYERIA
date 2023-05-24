@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+}
+
+.card-text{
+
+color: #faa302;
+
+
+}
+
+.d-block {
+    width: 100%;
+    float: center;
+    margin: auto;
+}
+
+#navbar1{
+
+    background: linear-gradient( #000000, #faa302);
+
+
+}
+
+
+section {
+    background-color: black;
+}
+
+p {
+    color: aliceblue;
+}
+
+.borde {
+    border: 1px;
+    color: #000;
+}
+/*
+*REGISTRO
+*/
+#body1 {
+    font-family: Arial, sans-serif;
+    background-color: #cbf3f3;
+}
+#form2 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+#form2 p{
+    color: #000
+}
+
+
+ #form1 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#body1 label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#body1 input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#body1 input[type="submit"] {
+    background-color: #008CBA;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#body1 input[type="submit"]:hover {
+    background-color: #006B8E;
+}
+
+
+/*
+*COLLARES
+*/
+#bodycollar .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#bodycollar .joyas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#bodycollar .joya {
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+#bodycollar .joya img {
+    width: 100%;
+}
+
+#bodycollar .joya h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#bodycollar .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+
+/*
+*ANILLOS
+*/
+#bodyanillos .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#bodyanillos .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+/*
+*BRAZALETES
+*/
+#bodybraza .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+#bodybraza .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+   /*
+   *PENDIENTES
+   */
+#bodypendientes .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+#bodypendientes .precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #008CBA;
+}
+/*
+*FOOTER
+*/
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fda725;
+    padding: 20px;
+  }
+  
+  .footer-left {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+  
+  .footer-left p {
+    margin: 0 0 10px;
+  }
+  
+  .footer-left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-left li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .footer-left li:last-child {
+    margin-right: 0;
+  }
+  
+  .footer-left a {
+    color: #fffafa;
+  }
+  
+  .footer-left a:hover {
+    color: #333;
+  }
+  
+  .footer-right {
+    flex: 1 1 100%;
+    text-align: right;
+  }
+  
+  .iconosredes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .iconosredes li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .iconosredes li:last-child {
+    margin-right: 0;
+  }
+  
+  .iconosredes a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fda725;
+    text-align: center;
+    line-height: 30px;
+  }
+  
+  .iconosredes a img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .footer-bottom {
+    flex: 1 1 100%;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+  }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    img{
+        width: 50%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    img{
+        width: 60%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    img{
+        width: 70%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    img{
+        width: 80%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    img{
+        width: 90%;
+    }
+}
+
+/*CARRUSEL*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .carousel{
+        width: 50%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .carousel{
+        width: 60%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .carousel{
+        width: 70%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .carousel{
+        width: 80%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .carousel{
+        width: 90%;
+    }
+}
+/*BODY CARRITO*/
+
+#bodycarro{
+    
+    background-color: #000;
+
+}
+
+ .neon {
+        text-align: center;
+        margin-top: 100px;
+	    animation: colorChange 5s infinite;
+}
+
+		@keyframes colorChange {
+			0% {
+				color: red;
+			}
+			25% {
+				color: blue;
+			}
+			50% {
+				color: green;
+			}
+			75% {
+				color: yellow;
+			}
+			100% {
+				color: orange;
+			}
+		}
+
+        /*FORMULARIO3*/
+       
+
+        #registro-form3 {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #f1f1f1;
+            padding: 10px;
+            background-color: #f9f9f9;
+          }
+
+          #registro-form3 p{
+            animation: colorChange2 3s infinite;
+            font-size: 12px;
+            margin-top: 5px;
+          }
+          @keyframes colorChange2 {
+		
+
+            0% {
+                color: orange;
+            }
+
+			50% {
+				color: #000;
+			}
+			
+			100% {
+				color: orange;
+			}
+		}
+          
+          
+    
+           #form2 p{
+            animation: colorChange2 3s infinite;
+            font-size: 12px;
+            margin-top: 5px;
+         
+          
+           }
+
+
+           #map {
+            height: 500px;     
+            width: 100%;
+          }
+
+          h5{
+            text-align: center; 
+            margin-top: 10px;
+          }
+
+
+          /* 
+REGISTRO JS
+*/
+
+.bodyreg{
+    background: linear-gradient(#1e318e, #116621, #000000);
+}

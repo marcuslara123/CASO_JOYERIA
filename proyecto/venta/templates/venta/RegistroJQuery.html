@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+	<link rel="stylesheet" href="CSS/Style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body class="bodyreg">
+    
+
+	<nav id="navbar1" class="navbar bg-dark sticky-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Joyería</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+				aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarScroll">
+				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="Index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Anillos.html">Anillos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Collares.html">Collares</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Pendientes.html">Pendientes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Brazaletes.html">Brazaletes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Registro.html">Registrarse</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Carro.html">Carro</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar
+							Sesión</a>
+					
+						</ul>
+					
+				
+				<form class="d-flex" role="search">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Buscar</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+
+
+<div class="row">
+	<form  action= "CASO_JOYERIA/Anillos.html" id="registro-form3" name="registro" method="GET" >
+		<div class="form-group">
+		<h2>Registro de Usuario</h2><br>
+
+		<label for="nombre">Nombre de usuario:</label><br>
+		<input type="text" id="nombre" name="nombre">
+		<p id="valida_nombre"></p><br>
+		
+
+		<label for="fecha_nacimiento">Fecha de nacimiento:</label><br>
+		<input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+		<p id="valida_nac"></p><br>
+		
+		<label for="correo">Correo electrónico:</label>
+		<input type="email" id="correo" name="correo">
+		<p id="valida_email"></p><br>
+		
+		<label for="contrasena">Contraseña:</label>
+		<input type="password" id="contrasena" name="contrasena">
+		<p id="valida_password"></p>
+		
+		
+		
+		<button type="button" onclick="validar()">Ingresar</button>
+
+		</div>	
+	</form> 
+
+</div>	
+<!--FOOTER-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer>
+  <div class="footer-left">
+	<p>Envío gratis y seguro, devoluciones y joyería artesanal. Resimensionamiento gratis.</p>
+	<ul>
+	  <li><a href="#">Devoluciones</a></li>
+	  <li><a href="#">Quienes Somos</a></li>
+	  <li><a href="#">Política de privacidad</a></li>
+	  <li><a href="#">Política de cookies</a></li>
+	</ul>
+  </div>
+  <div class="footer-right">
+	<ul class="iconosredes">
+	  <li><a href="#"><img src="IMG/instagram.png" alt="Instagram"></a></li>
+	  <li><a href="#"><img src="IMG/wsp.png" alt="WhatsApp"></a></li>
+	  <li><a href="#"><img src="IMG/facebook.png" alt="Facebook"></a></li>
+	</ul>
+  </div>
+  <div class="footer-bottom">
+	<p>Todos los derechos reservados 2023.</p>
+  </div>
+</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+    <script src="JS/registro.js"></script>
+</body>
+</html>
