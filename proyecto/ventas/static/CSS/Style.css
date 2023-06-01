@@ -56,7 +56,7 @@ p {
     background-color: #cbf3f3;
 }
 #form2 {
-    background: linear-gradient(#527db2, #30ac72);
+    background: linear-gradient(#fff, #f070c5);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -113,7 +113,7 @@ select {
 }
 
 #registro-form3{
-    background: linear-gradient(#527db2, #30ac72);
+   
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
 }
@@ -438,10 +438,7 @@ footer {
            }
 
 
-           #map {
-            height: 500px;     
-            width: 100%;
-          }
+
 
           h5{
             text-align: center; 
@@ -454,7 +451,8 @@ REGISTRO JS
 */
 
 .bodyreg{
-    background: linear-gradient(#1e318e, #116621, #000000);
+  background: linear-gradient(45deg, #FF4081, #3F51B5);
+  height: 100%;
 }
 
 
@@ -464,6 +462,7 @@ INICIAR SESION
 
 #sesionfondo {
   background: linear-gradient(45deg, #FF4081, #3F51B5);
+  height: 100%;
 }
   
 
