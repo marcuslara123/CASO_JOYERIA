@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XD</title>
+</head>
+<body>
+    <h3>bienvenidos a Django</h3>
+    <br>
+
+<button type="button">
+    <a href="{% url 'clientes_add' %}">Agregar</a>
+
+</button>
+<br>
+<div id="mensaje">
+    {% if mensaje%}
+    {{mensaje}}
+    {% endif%}
+</div>
+<br>
+<table>
+
+
+    {% if cliente %}
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Eliminar</th>
+    <th>Modificar</th>
+
+    {% for tmp in alumnos %}
+    <tr>
+
+        <td>{{tmp.id}}</td>
+        <td>{{tmp.nombre}}</td>
+        <td>{{tmp.apellido_paterno}}</td>
+        <td><a href="">Eliminar</a></td>
+        <td><a href="">Agregar</a></td>
+
+    </tr>
+    {% endfor %}
+    {% endif %}
+
+</table>
+
+</body>
+</html>

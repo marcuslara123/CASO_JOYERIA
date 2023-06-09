@@ -10,7 +10,7 @@ urlpatterns = [
     path('Brazaletes.html', views.brazalete, name='brazalete'),
     path('Registro.html', views.registro, name='registro'),
     path('Carro.html', views.carro, name='carro'),
-    path('RegistroJQuery.html', views.registrojq, name='registrojq'),
     path('RegistroJS.html', views.registrojs, name='registrojs'),
     path('IniciarSesion.html', views.iniciarsesion, name='iniciarsesion'),
+    path('clientes_add', views.agregar_clientes, name='clientes_add'),
 ]
