@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Alumno</title>
+</head>
+<body>
+    {% if alumno %}
+        <h3>Actualizar alumno</h3>
+        <form action="{% url 'actualizar_alumno' %}" method="POST">
+            {% csrf_token %} 
+
+            <pre>Rut: <input type="text" name="rut" value="{{alumno.rut}}"></pre>
+            <pre>Nombre: <input type="text" name="nombre" value="{{alumno.nombre}}"></pre>
+            <pre>Apellido Paterno: <input type="text" name="apePat" value="{{alumno.apellido_paterno}}"></pre>
+            <pre>Apellido Materno: <input type="text" name="apeMat" value="{{alumno.apellido_materno}}"></pre>
+            <pre>Fecha de Nacimiento: <input type="date" name="fecNac" value="{{alumno.fecha_nacimiento|date:'Y-m-d'}}"></pre>
+            <pre>Género: <select name="genero">
+                {% for tmp in generos %}
+                    {% if tmp.genero == alumno.id_genero %}
+                        <option value="{{tmp.id_genero}}" selected>{{tmp.genero}}</option>
+                    {% else %}
+                        <option value="{{tmp.id_genero}}">{{tmp.genero}}</option>
+                    {% endif %}
+                {% endfor%}
+            </select>
+            </pre>
+            <pre>Teléfono:<input type="text" name="telefono" value="{{alumno.telefono}}"></pre>
+            <pre>Email:<input type="mail" name="email" value="{{alumno.email}}"></pre>
+            <pre>Dirección: <input type="text" name="direccion" value="{{alumno.direccion}}"></pre>
+            <input type="submit" value="Actualizar">
+        </form>
+    {% endif %}
+    <br><br>
+    
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+    <br>
+    <a href="{% url 'index' %}">Volver</a>
+</body>
+</html>

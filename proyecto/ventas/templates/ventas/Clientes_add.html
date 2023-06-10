@@ -4,40 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agregar alumos</title>
 </head>
 <body>
+    <h3>Datos del alumno</h3>
+    <form action="" method="POST">
+        {% csrf_token %} 
+        <pre>Rut: <input type="text" name="rut"></pre>
+        <pre>Nombre: <input type="text" name="nombre"></pre>
+        <pre>Apellido Paterno: <input type="text" name="apePat"></pre>
+        <pre>Apellido Materno: <input type="text" name="apeMat"></pre>
+        <pre>Fecha de Nacimiento: <input type="date" name="fecNac"></pre>
+        <pre>Articulo: <select name="N_articulo">
+            {% for tmp in generos %}
+                <option value="{{tmp.id_genero}}">{{tmp.genero}}</option>
+            {% endfor%}
+        </select>
+        </pre>
+        <pre>Teléfono:<input type="text" name="telefono"></pre>
+        <pre>Email:<input type="mail" name="email"></pre>
+        <pre>Dirección: <input type="text" name="direccion"></pre>
+        <input type="submit" value="Agregar">
+    </form>
+    <br><br>
     
-<h3>DATOS DEL ALUMNO</h3>
-
-<form action="" method="POST">
-{% csrf_token %}
-
-<pre>Id: <input type="text" name="id"></pre>
-<pre>Nombre: <input type="text" name="nombre"></pre>
-<pre>Apellido paterno: <input type="text" name="apePater"></pre>
-<pre>Apellido materno: <input type="text" name="apeMater"></pre>
-<pre>Fecha de Nacimiento: <input type="date" name="fecNaci"></pre>
-
-</select>
-
-
-<pre>Email: <input type="mail" name="email"></pre>
-
-<input type="sumbit" value="Agregar"> 
-
-</form>
-<div id="idMensajes">
-{% if mensaje %}
-
-    {{mensajes}}
-
-{% endif %}    
-
-</div>
-<br> 
-<a href="Clientes.html">Volver</a>
-
-
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+    <br>
+    <a href="{% url 'index' %}">Volver</a>
 </body>
 </html>

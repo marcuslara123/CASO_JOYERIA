@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
 
-from .models import Cliente
+from .models import Cliente, Articulo
 
 # Create your views here.
 def inicio(request):
@@ -42,42 +42,108 @@ def registrojs(request):
 
 def iniciarsesion(request):
     context = {}
-    return render(request, 'ventas/iniciarsesion.html', context)
+    return render(request, 'ventas/iniciarsesion.html', context)\
+    
+    ## BASE DE DATOS 
+
+def ini(request):
+    lista_clientes = Cliente.objects.all() #select * from Alumno
+    context={"clientes":lista_clientes}
+    return render(request,'venta/Clientes.html',context)
+
+def lista_clientes(request):
+    lista_clientes = Cliente.objects.raw("SELECT * FROM venta_cliente") #select * from Alumno
+    context={"clientes":lista_clientes}
+    return render(request,'venta/Clientes.html',context)
 
 def agregar_clientes(request):
-# EN EL METODO ES POST Y EN EL GENERO PODRIAN SER LOS ARTICULOS YA QUE ES UN COMBOBOX QUE SE 
-#RECORRE QUE SE OBTIEENE DEL MODELS GENERO
-    if request.method != 'POST':
-       # generos=Genero.objects.all()
-        #context={'generos':generos }
-        context = {}
-        return render(request,'venta/Clientes.html', context)
+    if request.method != "POST":
+        lista_articulos = Articulo.objects.all()
+        context={"Articulo(s)":lista_articulos}
+        return render(request,'venta/Clientes_add.html',context)
     else:
-        id = request.POST["id"]
+        #rescatamos en variables os valores del formulario (name)
+        rut = request.POST["rut"]
         nombre = request.POST["nombre"]
-        apellido_paterno = request.POST["apePater"]
-        apellido_materno = request.POST["ApeMater"]
-        fecha_nacimiento = request.POST["fecNaci"]
+        ape_Pat = request.POST["apePat"]
+        ape_Mat = request.POST["apeMat"]
+        fec_Nac = request.POST["fecNac"]
+        N_articulo = request.POST["N_articulo"] #NOMBRE ARTICULO
         email = request.POST["email"]
-    
-        #objGenero = Genero.objects.get (id_genero = genero)
-        objCliente= Cliente.objects.create (
-            id              = id,
+
+        objArticulo = Articulo.objects.get(articulo = N_articulo)
+        #crea alumno (izp:nombre del campo de la BD, derecho:variable local)
+        objCliente = Cliente.objects.create(  
+            rut              = rut,
             nombre           = nombre,
-            apellido_paterno = apePater,
-            apellido_materno = apeMater,
-            fecha_nacimiento = fecNaci,
-           
+            apellido_paterno = ape_Pat,
+            apellido_materno = ape_Mat,
+            fecha_nacimiento = fec_Nac,
+            articulo       = objArticulo,
             email            = email,
-          
             activo           = 1)
+        
+        objCliente.save() #insert en la base de datos
+        lista_clientes = Cliente.objects.all()
+        context = {"mensaje":"Se guardó Cliente","Articulo":lista_clientes}
+        return render(request,'venta/Clientes_add.html',context)
+        
+def eliminar_clientes(request,pk):
+    
+    try:
+        cliente = Cliente.objects.get(rut=pk)
 
+        cliente.delete() #delete en la BD
+        mensaje = "Se eliminó Cliente"
+        lista_clientes = Cliente.objects.all()
+        context={"Cliente":lista_clientes, "mensaje":mensaje}
+        return render(request,'venta/Cliente.html',context)
+    except:
+        mensaje = "NO se eliminó cliente"
+        lista_clientes = Cliente.objects.all()
+        context={"cliente":lista_clientes, "mensaje":mensaje}
+        return render(request,'venta/Cliente.html',context)
+    
+def buscar_cliente(request,pk):
+    if pk != "":
+        cliente = Cliente.objects.get(rut=pk)
+        lista_clientes = Cliente.objects.all()
+        context={"cliente":cliente, "generos":lista_clientes}
+        if cliente:
+            return render(request,'venta/Cliente_edit.html',context)
+        else:
+            context = {"mensaje":"El cliente no existe"}
+            return render(request,'venta/Cliente.html',context)
+        
+def actualizar_cliente(request):
+    if request.method == "POST":
+        #rescatamos en variables los valores del formulario (name)
+        rut = request.POST["rut"]
+        nombre = request.POST["nombre"]
+        ape_Pat = request.POST["apePat"]
+        ape_Mat = request.POST["apeMat"]
+        fec_Nac = request.POST["fecNac"]
+        N_articulo = request.POST["N_articulo"]
+        email = request.POST["email"]
+       
 
-# LUEGO SE GUARDA EN LA BASE DE DATOS CON EL MENSAJE ASOCIADO EN EL HTML
-
-        objCliente.save()
-        context = {"mensaje":"se guardaron los datos"}
-        return render(request,'venta/alumnos_add.html',context)
-
-                                            
-
+        objArticulo = Articulo.objects.get(articulo = N_articulo)
+        #crea alumno (izp:nombre del campo de la BD, derecho:variable local)
+        objCliente = Cliente()
+        objCliente.rut              = rut
+        objCliente.nombre           = nombre
+        objCliente.apellido_paterno = ape_Pat
+        objCliente.apellido_materno = ape_Mat
+        objCliente.fecha_nacimiento = fec_Nac
+        objCliente.articulo        = objArticulo
+        objCliente.email            = email
+        objCliente.activo           = 1
+        
+        objCliente.save() #update en la base de datos
+        lista_clientes = Cliente.objects.all()
+        context = {"mensaje":"Se actualizó Cliente","articulo":lista_clientes}
+        return render(request,'venta/Clientes_edit.html',context)
+    else:
+        lista_clientes = Cliente.objects.all()
+        context = {"Clientes":lista_clientes}
+        return render(request,'venta/Clientes.html',context)
