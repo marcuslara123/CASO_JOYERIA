@@ -86,7 +86,7 @@ def agregar_clientes(request):
         
         objCliente.save() #insert en la base de datos
         lista_articulos = Cliente.objects.all()
-        context = {"mensaje":"Se guardó cliente","Articulo":lista_articulos}
+        context = {"mensaje":"Se guardó cliente","articulos":lista_articulos}
         return render(request,'ventas/Clientes_add.html',context)
         
 def eliminar_clientes(request,pk):
@@ -143,7 +143,7 @@ def actualizar_cliente(request):
         
         objCliente.save() #update en la base de datos
         lista_articulos = Cliente.objects.all()
-        context = {"mensaje":"Se guardó cliente","Articulo":lista_articulos}
+        context = {"mensaje":"Se guardó cliente","articulos":lista_articulos}
         return render(request,'ventas/Clientes_add.html',context)
      else:
         lista_clientes = Cliente.objects.all()
