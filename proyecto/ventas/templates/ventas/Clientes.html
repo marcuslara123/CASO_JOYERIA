@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XD</title>
+    <title>Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/proyecto/ventas/static/CSS/Style.css">
+
 </head>
-<body>
-    <h3>bienvenidos a Django</h3>
+<body id="ListaClientes">
+    <h3 id="h3listaclientes">Lista de clientes</h3>
     <br>
-    <button type="button">
-        <a href="{% url 'alumnoAdd' %}">Agregar</a>
+    <button type="button" id="botonagregarcliente">
+        <a href="{% url 'clienteAdd' %}">Agregar</a>
     </button>
     <br>
     <div id="idMensajes">
@@ -19,24 +23,28 @@
         {% endif %}
     </div>
     <br>
-    <table>
-        {% if alumnos %}
+    <table id="tablaclientes">
+        {% if clientes %}
             <th>Rut</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Eliminar</th>
             <th>Modificar</th>
-            {% for tmp in  alumnos %}
+            {% for tmp in  clientes %}
                 <tr>
                     <td>{{tmp.rut}}</td>
                     <td>{{tmp.nombre}}</td>
                     <td>{{tmp.apellido_paterno}}</td>
-                    <td><a href="{% url 'alumnos_del' pk=tmp.rut %}">Eliminar</a></td>
-                    <td><a href="{% url 'alumnos_findEdit' pk=tmp.rut %}">Modificar</a></td>
+                    <td><a href="{% url 'cliente_del' pk=tmp.rut %}">Eliminar</a></td>
+                    <td><a href="{% url 'cliente_findEdit' pk=tmp.rut %}">Modificar</a></td>
                 </tr>
             {% endfor %} 
         {% endif %}   
     </table>
     <br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+  </script>
 </body>
 </html>
