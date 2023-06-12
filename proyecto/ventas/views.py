@@ -85,8 +85,8 @@ def agregar_clientes(request):
             activo           = 1)
         
         objCliente.save() #insert en la base de datos
-        lista_clientes = Cliente.objects.all()
-        context = {"mensaje":"Se guardó cliente","Articulo":lista_clientes}
+        lista_articulos = Cliente.objects.all()
+        context = {"mensaje":"Se guardó cliente","Articulo":lista_articulos}
         return render(request,'ventas/Clientes_add.html',context)
         
 def eliminar_clientes(request,pk):
@@ -108,8 +108,8 @@ def eliminar_clientes(request,pk):
 def buscar_cliente(request,pk):
      if pk != "":
         cliente = Cliente.objects.get(rut=pk)
-        lista_clientes = Cliente.objects.all()
-        context={"cliente":cliente, "Clientes":lista_clientes}
+        lista_articulos = Cliente.objects.all()
+        context={"cliente":cliente, "Clientes":lista_articulos}
         if cliente:
             return render(request,'ventas/clientes_edit.html',context)
         else:
@@ -142,9 +142,9 @@ def actualizar_cliente(request):
         objCliente.activo           = 1
         
         objCliente.save() #update en la base de datos
-        lista_clientes = Cliente.objects.all()
-        context = {"mensaje":"Se actualizó Cliente","articulo":lista_clientes}
-        return render(request,'ventas/Clientes_edit.html',context)
+        lista_articulos = Cliente.objects.all()
+        context = {"mensaje":"Se guardó cliente","Articulo":lista_articulos}
+        return render(request,'ventas/Clientes_add.html',context)
      else:
         lista_clientes = Cliente.objects.all()
         context = {"clientes":lista_clientes}

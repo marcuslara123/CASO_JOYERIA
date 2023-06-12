@@ -25,12 +25,10 @@
                     {% else %}
                         <option value="{{tmp.articulo}}">{{tmp.articulo}}</option>
                     {% endif %}
-                {% endfor%}
+                {% endfor %}
             </select>
             </pre>
-            <pre>Teléfono:<input type="text" name="telefono" value="{{cliente.telefono}}"></pre>
             <pre>Email:<input type="mail" name="email" value="{{cliente.email}}"></pre>
-            <pre>Dirección: <input type="text" name="direccion" value="{{cliente.direccion}}"></pre>
             <input type="submit" value="Actualizar">
         </form>
     {% endif %}
