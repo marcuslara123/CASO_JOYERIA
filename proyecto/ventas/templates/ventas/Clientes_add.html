@@ -21,12 +21,10 @@
         <pre class="pre_datoscliente">Articulo: <select name="N_articulo">
             {% for tmp in articulos %}
                 <option value="{{tmp.articulo}}">{{tmp.articulo}}</option>
-            {% endfor%}
+            {% endfor %}
         </select>
         </pre>
-        <pre class="pre_datoscliente">Teléfono:<input type="text" name="telefono"></pre>
         <pre class="pre_datoscliente" >Email:<input type="mail" name="email"></pre>
-        <pre class="pre_datoscliente">Dirección: <input type="text" name="direccion"></pre>
         <input type="submit" value="Agregar">
     </form>
     <br><br>

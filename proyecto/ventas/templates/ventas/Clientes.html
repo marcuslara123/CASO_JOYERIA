@@ -14,7 +14,7 @@
     <h3 id="h3listaclientes">Lista de clientes</h3>
     <br>
     <button type="button" id="botonagregarcliente">
-        <a href="{% url 'clienteAdd' %}">Agregar</a>
+        <a href="{% url 'Clientes_add' %}">Agregar</a>
     </button>
     <br>
     <div id="idMensajes">
@@ -28,6 +28,7 @@
             <th>Rut</th>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Id_Articulo</th>
             <th>Eliminar</th>
             <th>Modificar</th>
             {% for tmp in  clientes %}
@@ -35,6 +36,7 @@
                     <td>{{tmp.rut}}</td>
                     <td>{{tmp.nombre}}</td>
                     <td>{{tmp.apellido_paterno}}</td>
+                    <td>{{tmp.articulo}}</td>
                     <td><a href="{% url 'cliente_del' pk=tmp.rut %}">Eliminar</a></td>
                     <td><a href="{% url 'cliente_findEdit' pk=tmp.rut %}">Modificar</a></td>
                 </tr>

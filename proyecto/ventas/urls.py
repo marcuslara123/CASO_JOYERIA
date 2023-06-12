@@ -12,10 +12,12 @@ urlpatterns = [
     path('Carro.html', views.carro, name='carro'),
     path('RegistroJS.html', views.registrojs, name='registrojs'),
     path('IniciarSesion.html', views.iniciarsesion, name='iniciarsesion'),
-    path('Cliente.html', views.ini, name='clientes'),
+
+    path('Clientes.html', views.clientes, name='Clientes'),
     path('lista_clientes',views.lista_clientes,name='lista_clientes'),
-    path('clienteAdd',views.agregar_clientes,name='clienteAdd'),
+    path('Clientes_add',views.agregar_clientes,name='Clientes_add'),
     path('borrarCliente/<str:pk>',views.eliminar_clientes,name='cliente_del'),
     path('buscarCliente/<str:pk>',views.buscar_cliente,name='cliente_findEdit'),
     path('actualizarCliente',views.actualizar_cliente,name='actualizar_cliente'),
-]
+
+     ]
