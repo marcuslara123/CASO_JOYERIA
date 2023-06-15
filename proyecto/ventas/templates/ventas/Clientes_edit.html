@@ -1,37 +1,66 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Clientes</title>
-    <link rel="stylesheet" href="/proyecto/ventas/static/CSS/Style.css">
+    <title>Modificar Cliente</title>
+    <link rel="stylesheet" href='{% static "CSS/Style.css" %}'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
 </head>
 <body id="EditarCliente">
     {% if cliente %}
-        <h3>Actualizar cliente</h3>
-        <form action="{% url 'actualizar_cliente' %}" method="POST">
-            {% csrf_token %} 
-
-            <pre>Rut: <input type="text" name="rut" value="{{cliente.rut}}"></pre>
-            <pre>Nombre: <input type="text" name="nombre" value="{{cliente.nombre}}"></pre>
-            <pre>Apellido Paterno: <input type="text" name="apePat" value="{{cliente.apellido_paterno}}"></pre>
-            <pre>Apellido Materno: <input type="text" name="apeMat" value="{{cliente.apellido_materno}}"></pre>
-            <pre>Fecha de Nacimiento: <input type="date" name="fecNac" value="{{cliente.fecha_nacimiento|date:'Y-m-d'}}"></pre>
-            <pre>Articulo: <select name="N_articulo">
-                {% for tmp in articulos %}
-                    {% if tmp.articulo == cliente.articulo %}
-                        <option value="{{tmp.articulo}}" selected>{{tmp.articulo}}</option>
-                    {% else %}
-                        <option value="{{tmp.articulo}}">{{tmp.articulo}}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
-            </pre>
-            <pre>Email:<input type="mail" name="email" value="{{cliente.email}}"></pre>
-            <pre>Direccion:<input type="text" name="dire" value="{{cliente.direccion}}"></pre>
-            <input type="submit" value="Actualizar">
-        </form>
+        <div id="formulario-editar">
+            <h3>Actualizar cliente</h3>
+            <form action="{% url 'actualizar_cliente' %}" method="POST">
+                {% csrf_token %} 
+                <div class="mb-3">
+                    <label class="form-label">Rut:</label>
+                    <input type="text" class="form-control" name="rut" value="{{cliente.rut}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" name="nombre" value="{{cliente.nombre}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Apellido Paterno:</label>
+                    <input type="text" class="form-control" name="apePat" value="{{cliente.apellido_paterno}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Apellido Materno:</label>
+                    <input type="text" class="form-control" name="apeMat" value="{{cliente.apellido_materno}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Fecha de Nacimiento:</label>
+                    <input type="date" class="form-control" name="fecNac" value="{{cliente.fecha_nacimiento|date:'Y-m-d'}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Articulo:</label>
+                    <select class="form-select" name="N_articulo">
+                        {% for tmp in articulos %}
+                            {% if tmp.articulo == cliente.articulo %}
+                                <option value="{{tmp.articulo}}" selected>{{tmp.articulo}}</option>
+                            {% else %}
+                                <option value="{{tmp.articulo}}">{{tmp.articulo}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email:</label>
+                    <input type="mail" class="form-control" name="email" value="{{cliente.email}}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Direccion:</label>
+                    <input type="text" class="form-control" name="dire" value="{{cliente.direccion}}">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Actualizar">
+            </form>
+        </div>
     {% endif %}
     <br><br>
     
@@ -42,5 +71,9 @@
     </div>
     <br>
     <a href="{% url 'Clientes' %}">Volver</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+  </script>
 </body>
 </html>
