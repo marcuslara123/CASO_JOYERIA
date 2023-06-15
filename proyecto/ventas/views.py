@@ -70,6 +70,7 @@ def agregar_clientes(request):
         fec_Nac = request.POST["fecNac"]
         N_articulo = request.POST["N_articulo"] #NOMBRE ARTICULO
         email = request.POST["email"]
+        direccion = request.POST["dire"]
 
         objArticulo = Articulo.objects.get(articulo = N_articulo)
         
@@ -82,6 +83,7 @@ def agregar_clientes(request):
             fecha_nacimiento = fec_Nac,
             articulo       = objArticulo, 
             email            = email,
+            direccion        = direccion,
             activo           = 1)
         
         objCliente.save() #insert en la base de datos
@@ -126,6 +128,7 @@ def actualizar_cliente(request):
         fec_Nac = request.POST["fecNac"]
         N_articulo = request.POST["N_articulo"]   
         email = request.POST["email"]
+        direccion = request.POST["dire"]
        
 
         objArticulo = Articulo.objects.get(articulo = N_articulo)
@@ -139,6 +142,7 @@ def actualizar_cliente(request):
         objCliente.fecha_nacimiento = fec_Nac
         objCliente.articulo        = objArticulo
         objCliente.email            = email
+        objCliente.direccion        = direccion
         objCliente.activo           = 1
         
         objCliente.save() #update en la base de datos

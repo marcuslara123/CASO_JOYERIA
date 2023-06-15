@@ -22,6 +22,7 @@ class Cliente(models.Model):
     fecha_nacimiento = models.DateField(blank=False, null=False) 
     telefono         = models.CharField(max_length=45)
     email            = models.EmailField(unique=True, max_length=100, blank=True, null=True)
+    direccion        = models.CharField(max_length=50, blank=False, null=False) 
     articulo         = models.ForeignKey('Articulo',on_delete=models.CASCADE, db_column='idArticulo') 
     activo           = models.IntegerField()
 
