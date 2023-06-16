@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de artículos</title>
+</head>
+<body>
+    <h3>Artículos</h3>
+    <br>
+    <button type="button">
+        <a href="{% url 'articulosAdd' %}">Agregar</a>
+    </button>
+    <br>
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+     <br>
+    <table>
+        {% if articulos %}
+            <th>Artículo</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+            {% for tmp in articulos %}
+                <tr>
+                    <td>{{tmp.articulo}}</td>
+                    <td><a href="{% url 'articulos_del' pk=tmp.articulo %}">Eliminar</a></td>
+                    <td><a href="{% url 'articulos_edit' pk=tmp.articulo %}">Modificar</a></td>
+                </tr>
+            {% endfor %} 
+        {% endif %}   
+    </table>
+    <br>
+    <a href="{% url 'Clientes' %}">Volver</a>
+</body>
+</html>
