@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Articulo(models.Model):
-    articulo            = models.AutoField(db_column='idArticulo', primary_key=True) 
+    id_articulo         = models.AutoField(db_column='idArticulo', primary_key=True) 
     nombre_articulo     = models.CharField(max_length=20)
     precio              = models.IntegerField()
     stock               = models.IntegerField()
@@ -23,7 +23,7 @@ class Cliente(models.Model):
     telefono         = models.CharField(max_length=45)
     email            = models.EmailField(unique=True, max_length=100, blank=True, null=True)
     direccion        = models.CharField(max_length=50, blank=False, null=False) 
-    articulo         = models.ForeignKey('Articulo',on_delete=models.CASCADE, db_column='idArticulo') 
+    id_articulo         = models.ForeignKey('Articulo',on_delete=models.CASCADE, db_column='idArticulo') 
     activo           = models.IntegerField()
 
     def __str__(self):

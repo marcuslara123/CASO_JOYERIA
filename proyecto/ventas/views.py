@@ -72,7 +72,7 @@ def agregar_clientes(request):
         email = request.POST["email"]
         direccion = request.POST["dire"]
 
-        objArticulo = Articulo.objects.get(articulo = N_articulo)
+        objArticulo = Articulo.objects.get(id_articulo = N_articulo)
         
         #crea alumno (izp:nombre del campo de la BD, derecho:variable local)
         objCliente = Cliente.objects.create(  
@@ -81,7 +81,7 @@ def agregar_clientes(request):
             apellido_paterno = ape_Pat,
             apellido_materno = ape_Mat,
             fecha_nacimiento = fec_Nac,
-            articulo       = objArticulo, 
+            id_articulo       = objArticulo, 
             email            = email,
             direccion        = direccion,
             activo           = 1)
@@ -131,7 +131,7 @@ def actualizar_cliente(request):
         direccion = request.POST["dire"]
        
 
-        objArticulo = Articulo.objects.get(articulo = N_articulo)
+        objArticulo = Articulo.objects.get(id_articulo = N_articulo)
         
          #crea alumno (izp:nombre del campo de la BD, derecho:variable local)
         objCliente = Cliente()
@@ -140,7 +140,7 @@ def actualizar_cliente(request):
         objCliente.apellido_paterno = ape_Pat
         objCliente.apellido_materno = ape_Mat
         objCliente.fecha_nacimiento = fec_Nac
-        objCliente.articulo        = objArticulo
+        objCliente.id_articulo        = objArticulo
         objCliente.email            = email
         objCliente.direccion        = direccion
         objCliente.activo           = 1
