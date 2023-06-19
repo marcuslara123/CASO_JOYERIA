@@ -39,13 +39,13 @@
                     <input type="date" class="form-control" name="fecNac" value="{{cliente.fecha_nacimiento|date:'Y-m-d'}}" placeholder="Ingrese su fecha de nacimiento" title="Fecha de Nacimiento">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Articulo:</label>
-                    <select class="form-select" name="N_articulo" title="Selecciona un artículo">
-                        {% for tmp in articulos %}
-                            {% if tmp.articulo == cliente.id_articulo %}
-                                <option value="{{tmp.id_articulo}}" selected>{{tmp.articulo}}</option>
+                    <label class="form-label">Region:</label>
+                    <select class="form-select" name="region" title="Selecciona un artículo">
+                        {% for tmp in regions %}
+                            {% if tmp.region == cliente.id_region %}
+                                <option value="{{tmp.id_region}}" selected>{{tmp.region}}</option>
                             {% else %}
-                                <option value="{{tmp.id_articulo}}">{{tmp.articulo}}</option>
+                                <option value="{{tmp.id_region}}">{{tmp.region}}</option>
                             {% endif %}
                         {% endfor %}
                     </select>

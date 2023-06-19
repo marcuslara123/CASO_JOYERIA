@@ -38,10 +38,10 @@
                 <input type="date" class="form-control" name="fecNac">
             </div>
             <div class="mb-3">
-                <label class="form-label">Articulo:</label>
-                <select class="form-select" name="N_articulo">
-                    {% for tmp in articulos %}
-                        <option value="{{tmp.id_articulo}}">{{tmp.articulo}}</option>
+                <label class="form-label">Region:</label>
+                <select class="form-select" name="region">
+                    {% for tmp in regions %}
+                        <option value="{{tmp.id_region}}">{{tmp.region}}</option>
                     {% endfor %}
                 </select>
             </div>

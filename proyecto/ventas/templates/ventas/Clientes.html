@@ -31,7 +31,7 @@
         <th>Rut</th>
         <th>Nombre</th>
         <th>Apellido</th>
-        <th>Id_Articulo</th>
+        <th>Region</th>
         <th>Precio a Pagar: $</th>
         <th>Dirrecion a Enviar</th>
         <th>Eliminar</th>
@@ -41,7 +41,7 @@
           <td>{{tmp.rut}}</td>
           <td>{{tmp.nombre}}</td>
           <td>{{tmp.apellido_paterno}}</td>
-          <td>{{tmp.articulo}}</td>
+          <td>{{tmp.region}}</td>
           <td><h6>Agregar</h6></td>
           <td>{{tmp.direccion}}</td>
           <td><a href="{% url 'cliente_del' pk=tmp.rut %}">Eliminar</a></td>

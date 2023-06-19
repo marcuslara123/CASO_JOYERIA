@@ -1,9 +1,9 @@
-from .models import Articulo
+from .models import Region
 from django.forms import ModelForm
 
-class ArticuloForm(ModelForm):
+class RegionForm(ModelForm):
     class Meta:
-        model = Articulo
-        fields = ["articulo",]
-        labels = {"articulo":"Artículo",}
+        model = Region
+        fields = ["region",]
+        labels = {"region":"Region",}
 

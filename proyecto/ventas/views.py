@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
-from .models import Cliente, Articulo
-from .forms import ArticuloForm
+from .models import Cliente, Region
+from .forms import RegionForm
 
 # Create your views here.
 def inicio(request):
@@ -58,8 +58,8 @@ def lista_clientes(request):
 
 def agregar_clientes(request):
     if request.method != "POST":
-        lista_articulos = Articulo.objects.all()
-        context={"articulos":lista_articulos}
+        lista_articulos = Region.objects.all()
+        context={"regions":lista_articulos}
         return render(request,'ventas/Clientes_add.html',context)
     else:
          #rescatamos en variables os valores del formulario (name)
@@ -68,11 +68,11 @@ def agregar_clientes(request):
         ape_Pat = request.POST["apePat"]
         ape_Mat = request.POST["apeMat"]
         fec_Nac = request.POST["fecNac"]
-        N_articulo = request.POST["N_articulo"] #NOMBRE ARTICULO
+        region = request.POST["region"] #NOMBRE ARTICULO
         email = request.POST["email"]
         direccion = request.POST["dire"]
 
-        objArticulo = Articulo.objects.get(id_articulo = N_articulo)
+        objRegion = Region.objects.get(id_region = region)
         
         #crea alumno (izp:nombre del campo de la BD, derecho:variable local)
         objCliente = Cliente.objects.create(  
@@ -81,14 +81,14 @@ def agregar_clientes(request):
             apellido_paterno = ape_Pat,
             apellido_materno = ape_Mat,
             fecha_nacimiento = fec_Nac,
-            id_articulo       = objArticulo, 
+            id_region       = objRegion, 
             email            = email,
             direccion        = direccion,
             activo           = 1)
         
         objCliente.save() #insert en la base de datos
         lista_articulos = Cliente.objects.all()
-        context = {"mensaje":"Se guardó cliente","articulos":lista_articulos}
+        context = {"mensaje":"Se guardó cliente","regions":lista_articulos}
         return render(request,'ventas/Clientes_add.html',context)
         
 def eliminar_clientes(request,pk):
@@ -126,12 +126,12 @@ def actualizar_cliente(request):
         ape_Pat = request.POST["apePat"]
         ape_Mat = request.POST["apeMat"]
         fec_Nac = request.POST["fecNac"]
-        N_articulo = request.POST["N_articulo"]   
+        region = request.POST["region"]   
         email = request.POST["email"]
         direccion = request.POST["dire"]
        
 
-        objArticulo = Articulo.objects.get(id_articulo = N_articulo)
+        objRegion = Region.objects.get(id_region = region)
         
          #crea alumno (izp:nombre del campo de la BD, derecho:variable local)
         objCliente = Cliente()
@@ -140,14 +140,14 @@ def actualizar_cliente(request):
         objCliente.apellido_paterno = ape_Pat
         objCliente.apellido_materno = ape_Mat
         objCliente.fecha_nacimiento = fec_Nac
-        objCliente.id_articulo        = objArticulo
+        objCliente.id_region        = objRegion
         objCliente.email            = email
         objCliente.direccion        = direccion
         objCliente.activo           = 1
         
         objCliente.save() #update en la base de datos
         lista_articulos = Cliente.objects.all()
-        context = {"mensaje":"Se guardó cliente","articulos":lista_articulos}
+        context = {"mensaje":"Se guardó region","regions":lista_articulos}
         return render(request,'ventas/Clientes_add.html',context)
      else:
         lista_clientes = Cliente.objects.all()
@@ -159,57 +159,57 @@ def actualizar_cliente(request):
      
 
 def mostrar_articulos(request):
-    lista_articulos = Articulo.objects.all()
-    context={"articulos":lista_articulos}
+    lista_articulos = Region.objects.all()
+    context={"regions":lista_articulos}
     return render(request,'ventas/Articulos_list.html',context)
 
 def agregar_articulos(request):
     if request.method == "POST":
-        form = ArticuloForm(request.POST)
+        form = RegionForm(request.POST)
         if form.is_valid:
             form.save() #insert
-            form = ArticuloForm()
+            form = RegionForm()
             context = {"mensaje": "Se agregó artículo", "form":form}
             return render(request,'ventas/Articulos_add.html',context)
         
     else:
-        form = ArticuloForm()
+        form = RegionForm()
         context = {"form":form}
         return render(request,'ventas/Articulos_add.html',context)
 
 def borrar_articulo(request,pk):
     errores = []
     try:
-        articulo = Articulo.objects.get(id_articulo=pk)
+        articulo = Region.objects.get(id_region=pk)
         if articulo:
             articulo.delete()
-            lista_articulos = Articulo.objects.all()
-            context = {"mensaje": "Artículo eliminado", "articulos":lista_articulos, "errores": errores}
+            lista_articulos = Region.objects.all()
+            context = {"mensaje": "Artículo eliminado", "regions":lista_articulos, "errores": errores}
             return render(request,'ventas/Articulos_list.html',context)
     
     except:
-        lista_articulos = Articulo.objects.all() 
-        context = {"mensaje": "No existe artículo", "articulos":lista_articulos, "errores": errores}
+        lista_articulos = Region.objects.all() 
+        context = {"mensaje": "No existe artículo", "regions":lista_articulos, "errores": errores}
         return render(request,'ventas/Articulos_list.html',context)
     
 def actualizar_articulo(request,pk):
     try:
-        articulo = Articulo.objects.get(id_articulo=pk)
-        if articulo:
+        region = Region.objects.get(id_region=pk)
+        if region:
             if request.method == "POST":
-                form = ArticuloForm(request.POST,instance=articulo)
+                form = RegionForm(request.POST,instance=region)
                 form.save() #update
-                context = {"mensaje": "Se actualizó artículo", "form":form, "articulo":articulo}
+                context = {"mensaje": "Se actualizó artículo", "form":form, "regions":region}
                 return render(request,'ventas/Articulos_edit.html',context)
             
             else:
-                form = ArticuloForm(instance=articulo)
+                form = RegionForm(instance=region)
                 mensaje = ""
-                context = {"mensaje": mensaje, "form":form, "articulo":articulo}
+                context = {"mensaje": mensaje, "form":form, "articulo":region}
                 return render(request,'ventas/Articulos_edit.html',context)
     
     except:
         mensaje = "No existe artículo"
-        lista_articulos = Articulo.objects.all() 
-        context = {"mensaje": mensaje, "articulos":lista_articulos}
+        lista_articulos = Region.objects.all() 
+        context = {"mensaje": mensaje, "region":lista_articulos}
         return render(request,'ventas/Articulos_list.html',context)
