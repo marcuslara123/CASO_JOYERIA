@@ -42,10 +42,10 @@
                     <label class="form-label">Articulo:</label>
                     <select class="form-select" name="N_articulo" title="Selecciona un artículo">
                         {% for tmp in articulos %}
-                            {% if tmp.N_articulo == cliente.id_articulo %}
-                                <option value="{{tmp.id_articulo}}" selected>{{tmp.N_articulo}}</option>
+                            {% if tmp.articulo == cliente.id_articulo %}
+                                <option value="{{tmp.id_articulo}}" selected>{{tmp.articulo}}</option>
                             {% else %}
-                                <option value="{{tmp.id_articulo}}">{{tmp.N_articulo}}</option>
+                                <option value="{{tmp.id_articulo}}">{{tmp.rticulo}}</option>
                             {% endif %}
                         {% endfor %}
                     </select>

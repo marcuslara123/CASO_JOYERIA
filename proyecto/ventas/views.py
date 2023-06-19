@@ -180,7 +180,7 @@ def agregar_articulos(request):
 def borrar_articulo(request,pk):
     errores = []
     try:
-        articulo = Articulo.objects.get(articulo=pk)
+        articulo = Articulo.objects.get(id_articulo=pk)
         if articulo:
             articulo.delete()
             lista_articulos = Articulo.objects.all()
@@ -194,7 +194,7 @@ def borrar_articulo(request,pk):
     
 def actualizar_articulo(request,pk):
     try:
-        articulo = Articulo.objects.get(articulo=pk)
+        articulo = Articulo.objects.get(id_articulo=pk)
         if articulo:
             if request.method == "POST":
                 form = ArticuloForm(request.POST,instance=articulo)

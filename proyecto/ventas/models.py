@@ -5,13 +5,13 @@ from django.db import models
 
 class Articulo(models.Model):
     id_articulo         = models.AutoField(db_column='idArticulo', primary_key=True) 
-    nombre_articulo     = models.CharField(max_length=20)
+    articulo     = models.CharField(max_length=20)
     precio              = models.IntegerField()
     stock               = models.IntegerField()
     fecha_producto      = models.DateField(blank=False, null=False) 
 
     def __str__(self):
-        return str(self.articulo)+" "+str(self.nombre_articulo)   
+        return str(self.articulo )+" "+str(self.nombre_articulo)   
     
 
 class Cliente(models.Model):
