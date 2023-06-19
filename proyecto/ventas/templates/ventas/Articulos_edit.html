@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículos</title>
+    <title>Region</title>
 </head>
 <body>
-    <h3>Modificar Artículos</h3>
-    {% if articulo %}
+    <h3>Modificar Region</h3>
+    {% if regions %}
         <form action="{% url 'articulos_edit' %}" method="post">
             {% csrf_token %} 
             {{ form.as_table }}

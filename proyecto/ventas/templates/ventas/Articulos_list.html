@@ -19,13 +19,13 @@
     </div>
      <br>
     <table>
-        {% if articulos %}
+        {% if regions %}
             <th>Artículo</th>
             <th>Eliminar</th>
             <th>Modificar</th>
-            {% for tmp in articulos %}
+            {% for tmp in regions %}
                 <tr>
-                    <td>{{tmp.articulo}}</td>
+                    <td>{{tmp.region}}</td>
                     <td><a href="{% url 'articulos_del' pk=tmp.id_articulo %}">Eliminar</a></td>
                     <td><a href="{% url 'articulos_edit' pk=tmp.id_articulo %}">Modificar</a></td>
                 </tr>
