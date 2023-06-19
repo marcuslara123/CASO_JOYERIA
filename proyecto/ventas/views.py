@@ -58,8 +58,8 @@ def lista_clientes(request):
 
 def agregar_clientes(request):
     if request.method != "POST":
-        lista_articulos = Region.objects.all()
-        context={"regions":lista_articulos}
+        lista_region = Region.objects.all()
+        context={"regions":lista_region}
         return render(request,'ventas/Clientes_add.html',context)
     else:
          #rescatamos en variables os valores del formulario (name)
@@ -87,8 +87,8 @@ def agregar_clientes(request):
             activo           = 1)
         
         objCliente.save() #insert en la base de datos
-        lista_articulos = Cliente.objects.all()
-        context = {"mensaje":"Se guardó cliente","regions":lista_articulos}
+        lista_region = Region.objects.all()
+        context = {"mensaje":"Se guardó cliente!","regions":lista_region}
         return render(request,'ventas/Clientes_add.html',context)
         
 def eliminar_clientes(request,pk):
@@ -97,12 +97,12 @@ def eliminar_clientes(request,pk):
         cliente = Cliente.objects.get(rut=pk)
 
         cliente.delete() #delete en la BD
-        mensaje = "Se eliminó Cliente"
+        mensaje = "Se eliminó Cliente!"
         lista_clientes = Cliente.objects.all()
         context={"cliente":lista_clientes, "mensaje":mensaje}
         return render(request,'ventas/clientes.html',context)
     except:
-        mensaje = "NO se eliminó cliente"
+        mensaje = "NO se eliminó cliente!"
         lista_clientes = Cliente.objects.all()
         context={"cliente":lista_clientes, "mensaje":mensaje}
         return render(request,'ventas/Clientes.html',context)
@@ -110,8 +110,8 @@ def eliminar_clientes(request,pk):
 def buscar_cliente(request,pk):
      if pk != "":
         cliente = Cliente.objects.get(rut=pk)
-        lista_articulos = Cliente.objects.all()
-        context={"cliente":cliente, "Clientes":lista_articulos}
+        lista_region = Region.objects.all()
+        context={"cliente":cliente, "regions":lista_region}
         if cliente:
             return render(request,'ventas/clientes_edit.html',context)
         else:
@@ -146,12 +146,14 @@ def actualizar_cliente(request):
         objCliente.activo           = 1
         
         objCliente.save() #update en la base de datos
-        lista_articulos = Cliente.objects.all()
-        context = {"mensaje":"Se guardó region","regions":lista_articulos}
-        return render(request,'ventas/Clientes_add.html',context)
+        lista_region = Region.objects.all()
+        context = {"mensaje": "Cliente actualizado!", "cliente": objCliente, "regions": lista_region}
+
+        return render(request,'ventas/Clientes_edit.html',context)
      else:
         lista_clientes = Cliente.objects.all()
-        context = {"clientes":lista_clientes}
+        form = RegionForm()
+        context = {"clientes":lista_clientes,"form": form}
         return render(request,'ventas/Clientes.html',context) 
      
 
@@ -159,8 +161,8 @@ def actualizar_cliente(request):
      
 
 def mostrar_articulos(request):
-    lista_articulos = Region.objects.all()
-    context={"regions":lista_articulos}
+    lista_region = Region.objects.all()
+    context={"regions":lista_region}
     return render(request,'ventas/Articulos_list.html',context)
 
 def agregar_articulos(request):
@@ -183,13 +185,13 @@ def borrar_articulo(request,pk):
         articulo = Region.objects.get(id_region=pk)
         if articulo:
             articulo.delete()
-            lista_articulos = Region.objects.all()
-            context = {"mensaje": "Artículo eliminado", "regions":lista_articulos, "errores": errores}
+            lista_region = Region.objects.all()
+            context = {"mensaje": "Artículo eliminado", "regions":lista_region, "errores": errores}
             return render(request,'ventas/Articulos_list.html',context)
     
     except:
-        lista_articulos = Region.objects.all() 
-        context = {"mensaje": "No existe artículo", "regions":lista_articulos, "errores": errores}
+        lista_region = Region.objects.all() 
+        context = {"mensaje": "No existe artículo", "regions":lista_region, "errores": errores}
         return render(request,'ventas/Articulos_list.html',context)
     
 def actualizar_articulo(request,pk):
@@ -210,6 +212,6 @@ def actualizar_articulo(request,pk):
     
     except:
         mensaje = "No existe artículo"
-        lista_articulos = Region.objects.all() 
-        context = {"mensaje": mensaje, "region":lista_articulos}
+        lista_region = Region.objects.all() 
+        context = {"mensaje": mensaje, "region":lista_region}
         return render(request,'ventas/Articulos_list.html',context)
