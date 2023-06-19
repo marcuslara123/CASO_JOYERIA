@@ -41,7 +41,7 @@
                 <div class="mb-3">
                     <label class="form-label">Region:</label>
                     <select class="form-select" name="region" title="Selecciona un artículo">
-                        {% for tmp in region %}
+                        {% for tmp in regions %}
                             {% if tmp.region == cliente.id_region %}
                                 <option value="{{tmp.id_region}}" selected>{{tmp.region}}</option>
                             {% else %}

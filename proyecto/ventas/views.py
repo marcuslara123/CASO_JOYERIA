@@ -146,7 +146,7 @@ def actualizar_cliente(request):
         objCliente.activo           = 1
         
         objCliente.save() #update en la base de datos
-        lista_articulos = Cliente.objects.all()
+        lista_articulos = Region.objects.all()
         context = {"mensaje":"Se guardó region","regions":lista_articulos}
         return render(request,'ventas/Clientes_add.html',context)
      else:
