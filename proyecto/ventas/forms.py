@@ -4,6 +4,6 @@ from django.forms import ModelForm
 class ArticuloForm(ModelForm):
     class Meta:
         model = Articulo
-        fields = ["articulo",]
-        labels = {"articulo":"Artículo",}
+        fields = ["nombre_articulo",]
+        labels = {"nombre_articulo":"Artículo",}
 

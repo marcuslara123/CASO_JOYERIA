@@ -25,7 +25,7 @@
             <th>Modificar</th>
             {% for tmp in articulos %}
                 <tr>
-                    <td>{{tmp.articulo}}</td>
+                    <td>{{tmp.nombre_articulo}}</td>
                     <td><a href="{% url 'articulos_del' pk=tmp.articulo %}">Eliminar</a></td>
                     <td><a href="{% url 'articulos_edit' pk=tmp.articulo %}">Modificar</a></td>
                 </tr>
