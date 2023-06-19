@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos</title>
+</head>
+<body id="AgregarArticulo">
+    <div id="formulario_articulo">
+
+    </div>
+    <h3 id="agregar-articulo">Agregar Artículo</h3>
+    <form id="formarticulo" action="" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="form-label">Artículo:</label>
+            <input type="text" class="form-control" >
+        </div> 
+        {{ form.as_table }}
+        <input type="submit" value="Agregar">
+    </form>
+
+    <br><br>
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+    <br>
+    <a href="{% url 'crud_articulos' %}">Volver</a>
+</body>
+</html>

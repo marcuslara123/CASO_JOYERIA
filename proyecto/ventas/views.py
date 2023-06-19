@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
-
 from .models import Cliente, Articulo
+from .forms import ArticuloForm
 
 # Create your views here.
 def inicio(request):
@@ -153,3 +153,63 @@ def actualizar_cliente(request):
         lista_clientes = Cliente.objects.all()
         context = {"clientes":lista_clientes}
         return render(request,'ventas/Clientes.html',context) 
+     
+
+
+     
+
+def mostrar_articulos(request):
+    lista_articulos = Articulo.objects.all()
+    context={"articulos":lista_articulos}
+    return render(request,'ventas/Articulos_list.html',context)
+
+def agregar_articulos(request):
+    if request.method == "POST":
+        form = ArticuloForm(request.POST)
+        if form.is_valid:
+            form.save() #insert
+            form = ArticuloForm()
+            context = {"mensaje": "Se agregó artículo", "form":form}
+            return render(request,'ventas/Articulos_add.html',context)
+        
+    else:
+        form = ArticuloForm()
+        context = {"form":form}
+        return render(request,'ventas/Articulos_add.html',context)
+
+def borrar_articulo(request,pk):
+    errores = []
+    try:
+        articulo = Articulo.objects.get(articulo=pk)
+        if articulo:
+            articulo.delete()
+            lista_articulos = Articulo.objects.all()
+            context = {"mensaje": "Artículo eliminado", "articulos":lista_articulos, "errores": errores}
+            return render(request,'ventas/Articulos_list.html',context)
+    
+    except:
+        lista_articulos = Articulo.objects.all() 
+        context = {"mensaje": "No existe artículo", "articulos":lista_articulos, "errores": errores}
+        return render(request,'ventas/Articulos_list.html',context)
+    
+def actualizar_articulo(request,pk):
+    try:
+        articulo = Articulo.objects.get(articulo=pk)
+        if articulo:
+            if request.method == "POST":
+                form = ArticuloForm(request.POST,instance=articulo)
+                form.save() #update
+                context = {"mensaje": "Se actualizó artículo", "form":form, "articulo":articulo}
+                return render(request,'ventas/Articulos_edit.html',context)
+            
+            else:
+                form = ArticuloForm(instance=articulo)
+                mensaje = ""
+                context = {"mensaje": mensaje, "form":form, "articulo":articulo}
+                return render(request,'ventas/Articulos_edit.html',context)
+    
+    except:
+        mensaje = "No existe artículo"
+        lista_articulos = Articulo.objects.all() 
+        context = {"mensaje": mensaje, "articulos":lista_articulos}
+        return render(request,'ventas/Articulos_list.html',context)
