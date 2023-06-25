@@ -68,6 +68,8 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = "Index"
+LOGOUT_REDIRECT_URL = "Index"
 WSGI_APPLICATION = 'MiJoyeria.wsgi.application'
 
 

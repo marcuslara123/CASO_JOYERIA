@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from .models import Cliente, Region
 from .forms import RegionForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def inicio(request):
@@ -46,9 +47,13 @@ def iniciarsesion(request):
     
     ## BASE DE DATOS 
 
+
+@login_required
 def clientes(request):
+     request.session["usuario"]="UsuarioX"
      lista_clientes = Cliente.objects.all() #select * from Cliente
-     context={"clientes":lista_clientes}
+     usuario=request.session["usuario"]
+     context={"clientes":lista_clientes,"usu":usuario}
      return render(request,'ventas/Clientes.html',context)
 
 def lista_clientes(request):
@@ -56,6 +61,7 @@ def lista_clientes(request):
      context={"clientes":lista_clientes}
      return render(request,'ventas/Clientes.html',context)
 
+@login_required
 def agregar_clientes(request):
     if request.method != "POST":
         lista_articulos = Region.objects.all()
@@ -160,7 +166,8 @@ def actualizar_cliente(request):
 
 def mostrar_articulos(request):
     lista_articulos = Region.objects.all()
-    context={"regions":lista_articulos}
+    usuario=request.session["usuario"]
+    context={"regions":lista_articulos,"usu":usuario}
     return render(request,'ventas/Articulos_list.html',context)
 
 def agregar_articulos(request):
@@ -213,3 +220,4 @@ def actualizar_articulo(request,pk):
         lista_articulos = Region.objects.all() 
         context = {"mensaje": mensaje, "region":lista_articulos}
         return render(request,'ventas/Articulos_list.html',context)
+
