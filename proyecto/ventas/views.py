@@ -152,16 +152,10 @@ def actualizar_cliente(request):
         objCliente.activo           = 1
         
         objCliente.save() #update en la base de datos
-<<<<<<< HEAD
-        lista_articulos = Region.objects.all()
-        context = {"mensaje":"Se guardó region","regions":lista_articulos}
-        return render(request,'ventas/Clientes_add.html',context)
-=======
         lista_region = Region.objects.all()
         context = {"mensaje": "Cliente actualizado!", "cliente": objCliente, "regions": lista_region}
 
         return render(request,'ventas/Clientes_edit.html',context)
->>>>>>> 9e20bc7330ab4e6161c8dc4b248ea6fb457f4bdf
      else:
         lista_clientes = Cliente.objects.all()
         form = RegionForm()
@@ -173,14 +167,9 @@ def actualizar_cliente(request):
      
 
 def mostrar_articulos(request):
-<<<<<<< HEAD
-    lista_articulos = Region.objects.all()
-    usuario=request.session["usuario"]
-    context={"regions":lista_articulos,"usu":usuario}
-=======
     lista_region = Region.objects.all()
-    context={"regions":lista_region}
->>>>>>> 9e20bc7330ab4e6161c8dc4b248ea6fb457f4bdf
+    usuario=request.session["usuario"]
+    context={"regions":lista_region,"usu":usuario}
     return render(request,'ventas/Articulos_list.html',context)
 
 def agregar_articulos(request):
