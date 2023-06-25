@@ -1,38 +1,48 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de artículos</title>
+    <link rel="stylesheet" href="{% static 'CSS/Style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-    <h3>Artículos</h3>
-    <br>
-    <button type="button">
-        <a href="{% url 'articulosAdd' %}">Agregar</a>
-    </button>
-    <br>
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{mensaje}}
-        {% endif %}
+    <div class="container">
+        <h3>Artículos</h3>
+        <br>
+        <a href="{% url 'articulosAdd' %}" class="btn btn-primary">Agregar</a>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
+        <br>
+        <table class="tablilla">
+            {% if regions %}
+                <thead>
+                    <tr>
+                        <th>Artículo</th>
+                        <th>Eliminar</th>
+                        <th>Modificar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tmp in regions %}
+                        <tr>
+                            <td>{{ tmp.region }}</td>
+                            <td><a href="{% url 'articulos_del' pk=tmp.id_region %}" class="btn btn-danger">Eliminar</a></td>
+                            <td><a href="{% url 'articulos_edit' pk=tmp.id_region %}" class="btn btn-warning">Modificar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+        <br>
+        <a href="{% url 'Clientes' %}" class="btn btn-secondary">Volver</a>
     </div>
-     <br>
-    <table>
-        {% if regions %}
-            <th>Artículo</th>
-            <th>Eliminar</th>
-            <th>Modificar</th>
-            {% for tmp in regions %}
-                <tr>
-                    <td>{{tmp.region}}</td>
-                    <td><a href="{% url 'articulos_del' pk=tmp.id_region %}">Eliminar</a></td>
-                    <td><a href="{% url 'articulos_edit' pk=tmp.id_region %}">Modificar</a></td>
-                </tr>
-            {% endfor %} 
-        {% endif %}   
-    </table>
-    <br>
-    <a href="{% url 'Clientes' %}">Volver</a>
 </body>
 </html>
