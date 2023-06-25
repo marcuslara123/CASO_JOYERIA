@@ -26,8 +26,8 @@
             {% for tmp in regions %}
                 <tr>
                     <td>{{tmp.region}}</td>
-                    <td><a href="{% url 'articulos_del' pk=tmp.id_articulo %}">Eliminar</a></td>
-                    <td><a href="{% url 'articulos_edit' pk=tmp.id_articulo %}">Modificar</a></td>
+                    <td><a href="{% url 'articulos_del' pk=tmp.id_region %}">Eliminar</a></td>
+                    <td><a href="{% url 'articulos_edit' pk=tmp.id_region %}">Modificar</a></td>
                 </tr>
             {% endfor %} 
         {% endif %}   
