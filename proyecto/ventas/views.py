@@ -5,8 +5,11 @@ from .forms import RegionForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def inicio(request):
-    context = {}
+    request.session["usuario"]="UsuarioX"
+    usuario=request.session["usuario"]
+    context = {"usu":usuario}
     return render(request, 'ventas/index.html', context)
 
 def anillo(request):

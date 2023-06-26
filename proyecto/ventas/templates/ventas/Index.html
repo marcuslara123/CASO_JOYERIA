@@ -18,6 +18,31 @@
 </head>
 
 <body>
+
+  
+  <h3>bienvenidos a Django {{usu}}</h3>
+  <br>
+
+  {% if user.is_authenticated %}
+      {{user.username}}
+      
+  {% else %}
+      <a href="{% url 'login' %}">login</a>
+  {% endif %}
+
+  {% if user.username == "admin" %}
+      <button type="button">
+          <a href="{% url 'alumnoAdd' %}">Agregar</a>
+      </button>
+  {% endif %}
+  <br>
+  <a href="{% url 'logout' %}">logout</a>
+  <div id="idMensajes">
+      {% if mensaje %}
+          {{mensaje}}
+      {% endif %}
+  </div>
+  <br>
  
   
   <header>
@@ -52,7 +77,7 @@
               <a class="nav-link" href="Carro.html">Carro</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="IniciarSesion.html">Sesión</a>
+              <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
             </li>
             
             

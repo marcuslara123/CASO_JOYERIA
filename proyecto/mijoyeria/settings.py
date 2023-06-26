@@ -55,7 +55,7 @@ ROOT_URLCONF = 'MiJoyeria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,8 +68,8 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL = "Index"
-LOGOUT_REDIRECT_URL = "Index"
+LOGIN_REDIRECT_URL = "inicio"
+LOGOUT_REDIRECT_URL = "inicio"
 WSGI_APPLICATION = 'MiJoyeria.wsgi.application'
 
 
