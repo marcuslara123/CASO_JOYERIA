@@ -1,16 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login de Usuario</title>
+    
 </head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+<body id = "bodiini">
+    
+        <form action="" method="post" id = "formini">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id = "buttonini">Login</button>
+        </form>
 
-        <button type="submit">Login</button>
-    </form>
 </body>
 </html>

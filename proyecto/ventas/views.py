@@ -5,7 +5,7 @@ from .forms import RegionForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
+
 def inicio(request):
     request.session["usuario"]="UsuarioX"
     usuario=request.session["usuario"]
