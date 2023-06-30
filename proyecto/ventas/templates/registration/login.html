@@ -17,11 +17,14 @@
   
 		
 	
-  <form action="" method="post" onsubmit="return validarCampos()">
+  <form id="loginForm" action="" method="post" onsubmit="return validarCampos()">
     <h5>Inicio de Sesión</h5>
     <div>
-		{% csrf_token %}
-		{{ form.as_p }}
+	Username	{% csrf_token %}
+  
+          	{{ form.as_p }}  
+  Password
+ 
 		
     </div>
 	<button type="submit" >Login</button>
