@@ -22,6 +22,22 @@
     <!--NAVBAR-->
 
     <nav id="navbar1" class="navbar bg-dark sticky-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <h3>Bienvenido </h3>
+      <br>
+    
+      {% if user.is_authenticated %}
+          {{user.username}}
+          
+      {% else %}
+          <a href="{% url 'login' %}">login</a>
+      {% endif %}
+    
+      {% if user.username == "admin" %}
+          <button type="button">
+              <a href="{% url 'Clientes' %}">Acceso ADMIN</a>
+          </button>
+      {% endif %}
+      
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Joyería</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -51,9 +67,15 @@
             <li class="nav-item">
               <a class="nav-link" href="Carro.html">Carro</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="IniciarSesion.html">Sesión</a>
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+            </li>
+            {% endif %}
             
             
           </ul>
