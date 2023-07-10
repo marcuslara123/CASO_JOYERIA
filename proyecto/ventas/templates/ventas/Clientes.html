@@ -29,7 +29,12 @@
         {% endif %}
       </div>
       <br>
-      <table id="tablaclientes">
+      <form method="GET" action="{% url 'lista_clientes' %}">
+        <input type="text" name="search" placeholder="Buscar cliente" value="{{ request.GET.search }}">
+        <button type="submit">Buscar</button>
+      </form>
+      
+      <table id="tablaclientes" class="tabla-clientes">
         {% if clientes %}
         <th>Rut</th>
         <th>Nombre</th>

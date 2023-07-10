@@ -13,7 +13,7 @@
     <div class="container">
         <h3>Modificar Región</h3>
         {% if regions %}
-            <form action="{% url 'articulos_edit' %}" method="post">
+            <form action="{% url 'articulos_edit' pk=articulo.pk %}" method="post">
                 {% csrf_token %} 
                 {{ form.as_table }}
                 <input type="submit" value="Actualizar" class="btn btn-primary">

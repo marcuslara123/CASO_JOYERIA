@@ -606,6 +606,11 @@ table#tablaclientes td a {
 table#tablaclientes td a:hover {
   text-decoration: underline;
 }
+.tabla-clientes {
+  max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto;
+}
+
 
 /**AGREGAR CLIENTES*/
 

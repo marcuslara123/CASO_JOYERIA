@@ -60,9 +60,11 @@ def clientes(request):
      return render(request,'ventas/Clientes.html',context)
 
 def lista_clientes(request):
-     lista_clientes = Cliente.objects.raw("SELECT * FROM ventas_clientes") #select * from Cliente
-     context={"clientes":lista_clientes}
-     return render(request,'ventas/Clientes.html',context)
+    search_query = request.GET.get('search', '')
+    clientes = Cliente.objects.filter(nombre__icontains=search_query)
+    context = {"clientes": clientes}
+    return render(request, 'ventas/Clientes.html', context)
+
 
 @login_required
 def agregar_clientes(request):
@@ -204,25 +206,39 @@ def borrar_articulo(request,pk):
         context = {"mensaje": "No existe artículo", "regions":lista_region, "errores": errores}
         return render(request,'ventas/Articulos_list.html',context)
     
-def actualizar_articulo(request,pk):
+def actualizar_articulo(request, pk):
     try:
         region = Region.objects.get(id_region=pk)
         if region:
             if request.method == "POST":
-                form = RegionForm(request.POST,instance=region)
-                form.save() #update
-                context = {"mensaje": "Se actualizó artículo", "form":form, "regions":region}
-                return render(request,'ventas/Articulos_edit.html',context)
-            
+                form = RegionForm(request.POST, instance=region)
+                if form.is_valid():
+                    form.save()  # Actualizar el artículo
+                    mensaje = "Región actualizada correctamente."
+                    lista_region = Region.objects.all()
+                    context = {
+                        "form": form,
+                        "articulo": region,
+                        "regions": lista_region,
+                        "mensaje": mensaje,
+                    }
+                    return render(request, 'ventas/Articulos_edit.html', context)
+
             else:
                 form = RegionForm(instance=region)
-                mensaje = ""
-                context = {"mensaje": mensaje, "form":form, "articulo":region}
-                return render(request,'ventas/Articulos_edit.html',context)
-    
-    except:
-        mensaje = "No existe artículo"
+                lista_region = Region.objects.all()
+                context = {
+                    "form": form,
+                    "articulo": region,
+                    "regions": lista_region,
+                }
+                return render(request, 'ventas/Articulos_edit.html', context)
+    except Region.DoesNotExist:
+        mensaje = "El artículo no existe."
         lista_region = Region.objects.all() 
-        context = {"mensaje": mensaje, "region":lista_region}
-        return render(request,'ventas/Articulos_list.html',context)
+        context = {
+            "mensaje": mensaje,
+            "regions": lista_region,
+        }
+        return render(request, 'ventas/Articulos_list.html', context)
 
