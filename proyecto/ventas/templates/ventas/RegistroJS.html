@@ -23,7 +23,7 @@
 			{{user.username}}
 			
 		{% else %}
-			<a href="{% url 'login' %}">login</a>
+			
 		{% endif %}
 	  
 		{% if user.username == "admin" %}
@@ -61,15 +61,7 @@
 			  <li class="nav-item">
 				<a class="nav-link" href="Carro.html">Carro</a>
 			  </li>
-			  {% if user.is_authenticated %}
-			  <li class="nav-item">
-				<a class="nav-link" href="{% url 'logout' %}">Logout</a>
-			  </li>
-			  {% else %}
-			  <li class="nav-item">
-				<a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
-			  </li>
-			  {% endif %}
+			  
 			  
 			  
 			</ul>
@@ -77,10 +69,19 @@
 			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 			  <button class="btn btn-outline-success" type="submit">Buscar</button>
 			</form>
+			<ul class="navbar-nav ms-auto">
+			{% if user.is_authenticated %}
+			  <li class="nav-item">
+				<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+			  </li>
+			  {% else %}
+			  <li class="nav-item">
+				<a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+			  </li>
+			  {% endif %} </ul>
 		  </div>
 		</div>
 	  </nav>
-
 
 
 
