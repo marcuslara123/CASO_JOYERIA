@@ -61,7 +61,7 @@ def clientes(request):
 
 def lista_clientes(request):
     search_query = request.GET.get('search', '')
-    clientes = Cliente.objects.filter(nombre__icontains=search_query)
+    clientes = Cliente.objects.filter(rut__icontains=search_query)
     context = {"clientes": clientes}
     return render(request, 'ventas/Clientes.html', context)
 

@@ -34,7 +34,7 @@
                     {% for tmp in regions %}
                         <tr>
                             <td>{{ tmp.region }}</td>
-                            <td><a href="{% url 'articulos_del' pk=tmp.id_region %}" class="btn btn-danger">Eliminar</a></td>
+                            <td><a href="{% url 'articulos_del' pk=tmp.id_region %}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta región?')" class="btn btn-danger">Eliminar</a></td>
                             <td><a href="{% url 'articulos_edit' pk=tmp.id_region %}" class="btn btn-warning">Modificar</a></td>
                         </tr>
                     {% endfor %}
